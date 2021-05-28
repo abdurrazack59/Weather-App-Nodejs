@@ -29,6 +29,6 @@ Steps to deploy a node.js application to heruko:
 13. heroku create <project_name>
 14. git push heroku HEAD:master
 15. heroku ps:scale web=1
-16. heroku open
+16. heroku open (or) https://<your-heroku-project-name>.herokuapp.com/ (ex:) https://weather-forecast-live.herokuapp.com/
 
 Happy Coding... :)
