@@ -2,7 +2,7 @@
 Weather application which displays the weather based on loaction searched. UI templates included.
 
 Package/Framework used:
-1. Express - NOdejs 
+1. Express - Nodejs 
 2. Handlebars(hbs) - Usefull in rendering UI 
 3. Request(Api client) - Usefull in fetching data by calling api's
 
