@@ -3,9 +3,9 @@ const express = require("express");
 const hbs = require("hbs");
 const forecast = require("./utils/forecast");
 
-const PORT = 5000;
-
 const app = express();
+
+const PORT = process.env.PORT || 5000;
 
 // Define paths for Express config
 const publicDirectoryPath = path.join(__dirname, "../public");
@@ -23,14 +23,14 @@ app.use(express.static(publicDirectoryPath));
 app.get("", (req, res) => {
   res.render("index", {
     title: "Weather",
-    name: "Andrew Mead",
+    name: "Abdur Razack",
   });
 });
 
 app.get("/about", (req, res) => {
   res.render("about", {
     title: "About Me",
-    name: "Andrew Mead",
+    name: "Abdur Razack",
   });
 });
 
@@ -38,7 +38,7 @@ app.get("/help", (req, res) => {
   res.render("help", {
     helpText: "This is some helpful text.",
     title: "Help",
-    name: "Andrew Mead",
+    name: "Abdur Razack",
   });
 });
 
@@ -52,7 +52,7 @@ app.get("/weather", (req, res) => {
   forecast(address, (error, forecastData) => {
     if (error) {
       return res.status(404).send({
-        error: error,
+        error: `Unable to retrieve weather for given location. ${error}`,
       });
     }
     res.status(200).send({
@@ -64,7 +64,7 @@ app.get("/weather", (req, res) => {
 app.get("/help/*", (req, res) => {
   res.render("404", {
     title: "404",
-    name: "Andrew Mead",
+    name: "Abdur Razack",
     errorMessage: "Help article not found.",
   });
 });
@@ -72,7 +72,7 @@ app.get("/help/*", (req, res) => {
 app.get("*", (req, res) => {
   res.render("404", {
     title: "404",
-    name: "Andrew Mead",
+    name: "Abdur Razack",
     errorMessage: "Page not found.",
   });
 });
